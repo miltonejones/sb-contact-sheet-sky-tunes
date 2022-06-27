@@ -6,7 +6,7 @@ const ButtonComponent = ({children, state, ...props}) =>{
     ...props,
     disabled: state === 'disabled'
   }
-  return <Button {...args}>{children}</Button>
+  return <Button {...props}>{children}</Button>
 }
 
 ButtonComponent.defaultProps = {};

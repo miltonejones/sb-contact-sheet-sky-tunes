@@ -5,8 +5,8 @@ const ButtonConfig = {
     name: "variant",
     options: ["contained", "outlined", "text"],
     variants: {
-      name: "state",
-      options: ["enabled", "disabled"],
+      name: "disabled",
+      options: [false, true],
       variants: {
         name: "size",
         options: ["large", "medium", "small"],

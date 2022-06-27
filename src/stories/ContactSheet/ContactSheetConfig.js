@@ -86,8 +86,10 @@ const createParams = (variant, argsTable = {}) => {
 
   // displayed value for the empty string
   const emptyProp = "<no filter>";
+  const strings =  options
+    .map((option) =>  option.toString());
 
-  const optionKeys = options
+  const optionKeys = strings
     .map((option) => ({ [option]: option }))
     .concat({ "": emptyProp });
 
@@ -103,9 +105,9 @@ const createParams = (variant, argsTable = {}) => {
       // * populating select with name/value pairs to support
       // * the empty string at the end having a visible value
       // append an empty string to clear the filter
-      options: options.concat(""),
+      options: strings.concat(""),
       // add a text alias for the empty string
-      mapping: options.concat(emptyProp),
+      mapping: strings.concat(emptyProp),
       // create the select control with labels
       // $ ref -> https://storybook.js.org/docs/react/essentials/controls
       control: {

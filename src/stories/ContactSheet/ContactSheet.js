@@ -34,14 +34,14 @@ import { Flex, Frame, Label,  SpecimenCard } from './components';
   const filter_name = props[`${name}:`];
 
   // * only show options matching the filter, if there is one
-  const shownOptions = options.filter((f) => !filter_name || f === filter_name);
+  const shownOptions = options.filter((f) => !filter_name || f.toString() === filter_name.toString());
 
   // + display component specimen row
   // * when there are no more descendant nodes, draw the component row
   if (!variants) {
     return (
       // display the list of options for this variant
-      <Flex>
+      <Flex> 
         {shownOptions.map((option) => {
           // * append this option to the accumulated set
           const properties = { ...accumulatedProps, [name]: option };
@@ -62,7 +62,7 @@ import { Flex, Frame, Label,  SpecimenCard } from './components';
     // $ NOTE: each Stack is a child of the previous one,
     // $       but is displayed as a sibling unless
     // $       it is a top-level element
-    <Stack data-testid="test-for-ContactSheet">
+    <Stack data-testid="test-for-ContactSheet"> 
       {/* display the list of options for this variant */}
       {shownOptions.map((option) => {
         // * append this option to the accumulated set
